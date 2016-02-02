@@ -1,0 +1,36 @@
+<?php
+//postback1.php
+
+//echo $_SERVER['PHP_SELF']; //returns the URL and file 
+//echo BASENAME($_SERVER['PHP_SELF']); //gives only file name
+//die;
+
+define('THIS_PAGE',BASENAME($_SERVER['PHP_SELF']));
+//echo THIS_PAGE;
+//form, formhandler, feedback
+
+/*
+' . THIS_PAGE . '
+
+
+*/
+
+if(isset($_POST['submit']))
+{//data submitted
+    
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
+
+}else{//show form
+ echo'
+ 
+ <form method="post" action = "' . THIS_PAGE . '">
+ Number 1:<input type="text" name="number1"/><br/>
+ Number 2:<input type="text" name="number2"/><br/>
+ Number 3:<input type="text" name="number3"/><br/>
+ <input type="submit" name="submit" value="Submit It!"/>
+ 
+ </form>
+ ';
+}

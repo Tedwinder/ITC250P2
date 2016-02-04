@@ -4,6 +4,7 @@
 
 
 
+
 class Item{
     public $name = ''; 
     public $price = 0;
@@ -15,14 +16,11 @@ public function __construct($name,$description,$price){
     $this->description = $description;   
     $this->price = $price;
         
-$items[] = new Item("Fried rice","mixed with other ingredients, such as eggs, vegetables, and meat!" ,8.99);
-$items[] = new Item("phat Thai","stir-fried rice noodle dish!" ,3.99);
-$items[] = new Item("pizza","topped with a selection of meats, vegetables and condiments" ,2.99);
-    
+ 
     }
+    
+  
 }
-
-
 
 
 
@@ -81,15 +79,42 @@ define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 
 {
     
-   
+//post the values from the form to local variables
     
     $item1Quantity= $_POST['input1'];
     $item2Quantity= $_POST['input2'];
     $item3Quantity= $_POST['input3'];
+        
+
+//create an array using the constructor class
+        
+/*if isset('$item1Quantity'){
+    
+    
+$item1[] = new Item("Fried rice","mixed with other ingredients, such as eggs, vegetables, and meat!" ,8.99);
+    
+    }else if isset('$item2Quantity') {  
+        
+$item2[] = new Item("phat Thai","stir-fried rice noodle dish!" ,3.99);
+    
+    }else if isset('$item3Quantity')
+    
+$item3[] = new Item("pizza","topped with a selection of meats, vegetables and condiments" ,2.99);  
+    }
+
+  print_r($item3);  */    
+        
+//calculate the subtotal
     
     $subTotal=($item1Quantity*8.99) + ($item2Quantity*3.99) + ($item3Quantity*2.99);
+        
+//calculate the tax
+    
     
     $tax = number_format(($subTotal * 0.095),2);
+        
+//calculate the total
+        
     $total = number_format(($subTotal + $tax),2);
     
     echo"<table><tr><th>Subtotal: </th></tr>

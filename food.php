@@ -4,8 +4,8 @@
 
 class Item{
     public $name = ''; 
-    public $price = 0;
     public $description='';
+    public $price = 0;
     
 public function Item($name,$description,$price){
     
@@ -63,27 +63,28 @@ define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 
 //create an array using the constructor class
 
-if ($item1Quantity >=0 && is_numeric($item1Quantity)) {
+if(is_numeric($item1Quantity) && is_numeric($item2Quantity) && is_numeric($item3Quantity)){      
+if ($item1Quantity >=0 && $item2Quantity >=0 && $item3Quantity >=0) {
 
         $item[] = new Item("Fried rice","mixed with other ingredients, such as eggs, vegetables, and meat!", 8.99);
-        echo 'you have ordered ' . $item1Quantity . ' of ' . $item[0]->$name;
-    
-    }else if($item2Quantity >=0 && is_numeric($item2Quantity)) {
+        echo 'you have ordered ' . $item1Quantity . ' of ' . $item[0]->name;
         
         $item[] = new Item("Phat Thai","stir-fried rice noodle dish!" ,3.99);
-        echo 'you have ordered ' . $item2Quantity . ' of ' . $item[1]->$name;
-    
-    }else if($item3Quantity >=0 && is_numeric($item3Quantity)) {
+        echo 'you have ordered ' . $item2Quantity . ' of ' . $item[1]->name;
     
         $item[] = new Item("Pizza","topped with a selection of meats, vegetables and condiments" ,2.99);
-        echo 'you have ordered ' . $item3Quantity . ' of ' . $item[2]->$name;
+        echo 'you have ordered ' . $item3Quantity . ' of ' . $item[2]->name;
     
     }else {
     
         echo 'something has gone wrong';
         die;
     }
-
+}else {
+    
+        echo 'something has gone wrong';
+        die;
+}
         
 //calculate the subtotal
     

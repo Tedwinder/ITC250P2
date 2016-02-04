@@ -88,10 +88,11 @@ define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 
 //create an array using the constructor class
         
-/*if isset('$item1Quantity'){
+/*if ('$item1Quantity'>0){
     
     
 $item1[] = new Item("Fried rice","mixed with other ingredients, such as eggs, vegetables, and meat!" ,8.99);
+echo "you've ordered" . $item1Quantity . "of" $item1[1];
     
     }else if isset('$item2Quantity') {  
         

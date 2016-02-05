@@ -63,32 +63,37 @@ define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 
 //create an array using the constructor class
 
+$item[] = new Item("Fried rice","mixed with other ingredients, such as eggs, vegetables, and meat!", 8.99);
+ $item[] = new Item("Phat Thai","stir-fried rice noodle dish!" ,3.99);
+ $item[] = new Item("Pizza","topped with a selection of meats, vegetables and condiments" ,2.99);
+ 
+ // create an if statement to give an error message for bad input, otherwise echo order
+
 if(is_numeric($item1Quantity) && is_numeric($item2Quantity) && is_numeric($item3Quantity)){      
 if ($item1Quantity >=0 && $item2Quantity >=0 && $item3Quantity >=0) {
 
-        $item[] = new Item("Fried rice","mixed with other ingredients, such as eggs, vegetables, and meat!", 8.99);
-        echo 'you have ordered ' . $item1Quantity . ' of ' . $item[0]->name;
         
-        $item[] = new Item("Phat Thai","stir-fried rice noodle dish!" ,3.99);
-        echo 'you have ordered ' . $item2Quantity . ' of ' . $item[1]->name;
-    
-        $item[] = new Item("Pizza","topped with a selection of meats, vegetables and condiments" ,2.99);
-        echo 'you have ordered ' . $item3Quantity . ' of ' . $item[2]->name;
+        echo 'you have ordered ' . $item1Quantity . ' of ' . $item[0]->name . "<br>";
+       
+        echo 'you have ordered ' . $item2Quantity . ' of ' . $item[1]->name . "<br>";
+        
+        echo 'you have ordered ' . $item3Quantity . ' of ' . $item[2]->name . "<br>";
     
     }else {
     
-        echo 'something has gone wrong';
-        die;
+        echo 'Order Quantities must be typed as numbers. Please retype your order quantity.';
+       die;
     }
 }else {
     
-        echo 'something has gone wrong';
+        echo 'Order Quantities must be typed as numbers. Please retype your order quantity';
         die;
 }
         
+        
 //calculate the subtotal
     
-    $subTotal=($item1Quantity*8.99) + ($item2Quantity*3.99) + ($item3Quantity*2.99);
+    $subTotal=($item1Quantity*$item[0]->price) + ($item2Quantity*$item[1]->price) + ($item3Quantity*$item[2]->price);
         
 //calculate the tax    
     
